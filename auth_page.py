@@ -16,7 +16,7 @@ class Authorization:
         self.username = None
         self.password = None
         options = Options()
-        # options.headless = True
+        options.headless = True
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
     def get_page(self, url):

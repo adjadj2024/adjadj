@@ -115,4 +115,15 @@ class Constants:
                 "promoCorePath": "/var/www/html/promo.v.5",
                 "handlerHash": "a718cbda40712cc3adea089ac6a1d571082767efde80a381f179aa98bc2846b7"
             }
+    DATA_HISTORY = {
+        "userID": '',
+        "userHash": '',
+        "curLang": 'hy',
+        "PeriodCurr": '13',
+        "wsfilename": 'Ajax-History.php',
+        "env": 'production',
+        "domain": 'am',
+        "promoCorePath": '/var/www/html/promo.v.5',
+        "handlerHash": 'a718cbda40712cc3adea089ac6a1d571082767efde80a381f179aa98bc2846b7',
+    }
 

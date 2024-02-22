@@ -3,6 +3,8 @@ import datetime
 import json
 import threading
 import time
+import ast
+
 
 import requests
 import aiohttp
@@ -31,6 +33,11 @@ class Requests:
             '36': '1000000',
             '33': '50000',
             '34': '20000'
+        }
+        self.star_count_map = {
+            '301': 1,
+            '302': 3,
+            '303': 5,
         }
 
 
@@ -239,6 +246,54 @@ class Requests:
         refresh_payload = Constants.REFRESH_PAYLOAD
         refresh_payload['userID'] = f"{user}"
         requests.post(url=self.url, headers=Constants.REQUEST_HEADERS, data=refresh_payload)
+
+    def process_the_request(self,user_id, user_hash, count):
+        data_history = Constants.DATA_HISTORY
+        data_history['userHash'] = user_hash
+        data_history['userID'] = user_id
+        history_res = requests.post(url=self.url,data=data_history).json()
+        star_count = int(history_res["count"]['starAmount'])
+        o_json = history_res["liveOut"]['out']['o_json']
+        o_json_dict = {}
+        if o_json:
+            o_json_dict = ast.literal_eval(o_json)
+
+        for i in range(1, count + 1):
+            for k in range(1, 6):
+                if str(k) in o_json_dict:
+                    print(f"Level {k} is already opened")
+                    o_json_dict.pop(str(k))
+                    continue
+                print(f"Request Level --> {k}")
+                data_bet = Constants.pyramid_payload
+                data_bet['gameLevel'] = k
+                data_bet['boxNum'] = randint(1, 6 - k)
+                data_bet['userHash'] = user_hash
+                data_bet['userID'] = user_id
+
+
+                res = requests.post(url=self.url,data=data_bet).json()
+                PrizeID = res["PrizeID"]
+                if PrizeID in ['301', '302', '303']:
+                    star_count += self.star_count_map[PrizeID]
+
+                    if star_count >= 25:
+                        data_star = Constants.star_box_payload
+                        data_star['userHash'] = user_hash
+                        data_star['userID'] = user_id
+                        requests.post(url=self.url,data=data_star)
+                        star_count = star_count - 25
+                    break
+                elif PrizeID in ['1', '2', '3']:
+                    if PrizeID in ['3']:
+                        exit(1)
+        return "Done"
+
+    def request_sync_pyramid(self, user_list, count):
+        for user in user_list:
+            db = Database()
+            id, user_id, user_hash, chance = db.get_one_user(user[2].cget('text'))
+            self.process_the_request(user_id, user_hash, count)
 
 
 if __name__ == '__main__':
