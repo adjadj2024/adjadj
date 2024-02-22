@@ -11,7 +11,6 @@ import asyncio
 from request_functionality import Requests
 from auth_page import Authorization
 from database import Database
-from email_part import Email
 from logger import Logger
 
 
