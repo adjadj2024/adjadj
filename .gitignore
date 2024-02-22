@@ -8,3 +8,6 @@ install_python_and_requirements.bat
 discription.txt
 env/
 test.py
+run.sh
+install.sh
+email_part.py
