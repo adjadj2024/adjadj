@@ -95,7 +95,7 @@ class Requests:
                     task2 = asyncio.create_task(self.box_request(session, one_user))
                     tasks.append(task)
                     tasks.append(task2)
-                    await asyncio.sleep(0.02)
+                    await asyncio.sleep(Constants.SPEED)
             await asyncio.gather(*tasks)
 
     async def box_request(self, session, user):
@@ -200,7 +200,7 @@ class Requests:
                 tasks.append(task_1)
                 tasks.append(task_2)
                 self.logger.info(f'{i + 1}/{count}')
-                time.sleep(0.02)
+                time.sleep(Constants.SPEED)
             await asyncio.gather(*tasks)
 
 
@@ -235,7 +235,7 @@ class Requests:
                 tasks.append(task_1)
                 tasks.append(task_2)
                 self.logger.info(f'{i + 1}/{count}')
-                time.sleep(0.02)
+                time.sleep(Constants.SPEED)
             await asyncio.gather(*tasks)
 
 

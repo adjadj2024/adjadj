@@ -4,6 +4,7 @@ current_file_path = os.path.abspath(__file__)
 
 
 class Constants:
+    SPEED = 0.07
     AUTHORIZATION_PAGE_URL = 'https://www.adjarabet.am/hy/Promo/volcanicwinnings'
     AKCIA_PAGE_URL = 'https://www.adjarabet.am/hy/Promo/astrocash'
     DB_PATH = os.path.join(os.path.dirname(current_file_path), 'app_db.db')
