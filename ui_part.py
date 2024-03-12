@@ -228,7 +228,7 @@ class MyApp:
         for var, checkbox, user_id_header, chance_count_header, delete_button in self.rows:
             id, user_id, user_hash, chance = db.get_one_user(user_id_header.cget('text'))
             data = req.get_prize_chance_count(user_id=user_id,user_hash=user_hash)
-            spinids = data.get("SpinIds")
+            spinids = data.get("redisCache")
             if spinids:
                 chance_count = spinids.get('avialable_try')
                 db.update_value_in_table(chance_count=chance_count,

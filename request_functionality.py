@@ -137,7 +137,7 @@ class Requests:
 
     def get_prize_chance_count(self, user_id, user_hash):
         self.check_server_availavlity(user_id)
-        payload = Constants.PRIZE_PAYLOAD
+        payload = Constants.DATA_HISTORY
         payload['userID'] = user_id
         payload['userHash'] = user_hash
         headers = Constants.REQUEST_HEADERS
@@ -172,6 +172,7 @@ class Requests:
         payload['userID'] = f'{user}'
         headers = Constants.REQUEST_HEADERS
         response = json.loads(requests.post(url=self.url, data=payload, headers=headers).content)
+        print(response)
         spinids = response.get("SpinIds")
         chance_count = spinids.get('avialable_try')
         board = response.get('arrLive')
@@ -197,6 +198,7 @@ class Requests:
             for i in range(int(count)):
                 task_1 = session.post(url=self.url, data=wheel_payload)
                 task_2 = session.post(url=self.url, data=box_payload)
+
                 tasks.append(task_1)
                 tasks.append(task_2)
                 self.logger.info(f'{i + 1}/{count}')
@@ -252,7 +254,7 @@ class Requests:
         data_history['userHash'] = user_hash
         data_history['userID'] = user_id
         history_res = requests.post(url=self.url,data=data_history).json()
-        star_count = int(history_res["count"]['starAmount'])
+        star_count = int(history_res["redisCache"]['starAmount'])
         o_json = history_res["liveOut"]['out']['o_json']
         o_json_dict = {}
         if o_json:

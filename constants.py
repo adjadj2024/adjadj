@@ -6,9 +6,9 @@ current_file_path = os.path.abspath(__file__)
 class Constants:
     SPEED = 0.07
     AUTHORIZATION_PAGE_URL = 'https://www.adjarabet.am/hy/Promo/volcanicwinnings'
-    AKCIA_PAGE_URL = 'https://www.adjarabet.am/hy/Promo/astrocash'
+    AKCIA_PAGE_URL = 'https://www.adjarabet.am/hy/Promo/cashquest'
     DB_PATH = os.path.join(os.path.dirname(current_file_path), 'app_db.db')
-    REQUEST_URL = "https://promos.www.adjarabet.am/astrocash/WebServices/handler.php"
+    REQUEST_URL = "https://promos.www.adjarabet.am/cashquest/WebServices/handler.php"
     PAYLOAD = {
                 "userID": "",
                 "hour": 2,
@@ -22,7 +22,7 @@ class Constants:
                 "env": "production",
                 "domain": "am",
                 "promoCorePath": "/var/www/html/promo.v.5",
-                "handlerHash": "a718cbda40712cc3adea089ac6a1d571082767efde80a381f179aa98bc2846b7"
+                "handlerHash": "67a0e2aef2c259ce2abc0fd4b869f0f903007ea6b7bdde7aaa2f8cd7bf242a81"
             }
     PRIZE_PAYLOAD = {
                 'userID': '',
@@ -30,8 +30,8 @@ class Constants:
                 'wsfilename': 'Ajax-Live.php',
                 'env': 'production',
                 'domain': 'am',
-                'promoCorePath': '/var/www/html/promo.v.5',
-                'handlerHash': 'a718cbda40712cc3adea089ac6a1d571082767efde80a381f179aa98bc2846b7'
+                'promoCorePath': '/var/www/html/promo.v.6',
+                'handlerHash': '67a0e2aef2c259ce2abc0fd4b869f0f903007ea6b7bdde7aaa2f8cd7bf242a81'
                     }
     REFRESH_PAYLOAD = {
                 "userID": "",
@@ -41,7 +41,7 @@ class Constants:
                 "env": "production",
                 "domain": "am",
                 "promoCorePath": "/var/www/html/promo.v.5",
-                "handlerHash": "a718cbda40712cc3adea089ac6a1d571082767efde80a381f179aa98bc2846b7"
+                "handlerHash": "67a0e2aef2c259ce2abc0fd4b869f0f903007ea6b7bdde7aaa2f8cd7bf242a81"
                     }
     REQUEST_HEADERS = {
                 "Accept": "*/*",
@@ -68,8 +68,8 @@ class Constants:
                 "wsfilename": "Ajax-StarGame.php",
                 "env": "production",
                 "domain": "am",
-                "promoCorePath": "/var/www/html/promo.v.5",
-                "handlerHash": "a718cbda40712cc3adea089ac6a1d571082767efde80a381f179aa98bc2846b7"
+                "promoCorePath": "/var/www/html/promo.v.6",
+                "handlerHash": "67a0e2aef2c259ce2abc0fd4b869f0f903007ea6b7bdde7aaa2f8cd7bf242a81"
                         }
     VALID_PRIZE = ['206', '205', '1', '204', '2', '3', '35', '36', '33', '34']
     pyramid_payload = {
@@ -80,11 +80,11 @@ class Constants:
                 "gameID": '2',
                 "gameLevel": '1',
                 "pMultiplier": '1',
-                "wsfilename": "Ajax-Game.php",
+                "wsfilename": "Ajax-Pyramid.php",
                 "env": "production",
                 "domain": "am",
                 "promoCorePath": "/var/www/html/promo.v.5",
-                "handlerHash": "a718cbda40712cc3adea089ac6a1d571082767efde80a381f179aa98bc2846b7"
+                "handlerHash": "67a0e2aef2c259ce2abc0fd4b869f0f903007ea6b7bdde7aaa2f8cd7bf242a81"
             }
     WHEEL_PAYLOAD = {
                 "userID": "",
@@ -95,11 +95,11 @@ class Constants:
                 "gameLevel": '0',
                 "pMultiplier": '1',
                 "autoSpin": 0,
-                "wsfilename": "Ajax-Game.php",
+                "wsfilename": "Ajax-Wheel.php",
                 "env": "production",
                 "domain": "am",
-                "promoCorePath": "/var/www/html/promo.v.5",
-                "handlerHash": "a718cbda40712cc3adea089ac6a1d571082767efde80a381f179aa98bc2846b7"
+                "promoCorePath": "/var/www/html/promo.v.6",
+                "handlerHash": "67a0e2aef2c259ce2abc0fd4b869f0f903007ea6b7bdde7aaa2f8cd7bf242a81"
             }
     SLOT_PAYLOAD = {
                 "userID": "",
@@ -110,11 +110,11 @@ class Constants:
                 "gameLevel": '0',
                 "pMultiplier": '1',
                 "autoSpin": 0,
-                "wsfilename": "Ajax-Game.php",
+                "wsfilename": "Ajax-Slot3.php",
                 "env": "production",
                 "domain": "am",
-                "promoCorePath": "/var/www/html/promo.v.5",
-                "handlerHash": "a718cbda40712cc3adea089ac6a1d571082767efde80a381f179aa98bc2846b7"
+                "promoCorePath": "/var/www/html/promo.v.6",
+                "handlerHash": "67a0e2aef2c259ce2abc0fd4b869f0f903007ea6b7bdde7aaa2f8cd7bf242a81"
             }
     DATA_HISTORY = {
         "userID": '',
@@ -122,9 +122,13 @@ class Constants:
         "curLang": 'hy',
         "PeriodCurr": '13',
         "wsfilename": 'Ajax-History.php',
+        "lastDay":"0",
+        "curDey": "",
+        "curMonth":"",
+        "curHour": "",
         "env": 'production',
         "domain": 'am',
-        "promoCorePath": '/var/www/html/promo.v.5',
-        "handlerHash": 'a718cbda40712cc3adea089ac6a1d571082767efde80a381f179aa98bc2846b7',
+        "promoCorePath": '/var/www/html/promo.v.6',
+        "handlerHash": '67a0e2aef2c259ce2abc0fd4b869f0f903007ea6b7bdde7aaa2f8cd7bf242a81',
     }
 
