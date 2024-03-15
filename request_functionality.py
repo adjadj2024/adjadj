@@ -254,11 +254,9 @@ class Requests:
         data_history['userHash'] = user_hash
         data_history['userID'] = user_id
         history_res = requests.post(url=self.url,data=data_history).json()
+        print(history_res)
         star_count = int(history_res["redisCache"]['starAmount'])
-        o_json = history_res["liveOut"]['out']['o_json']
-        o_json_dict = {}
-        if o_json:
-            o_json_dict = ast.literal_eval(o_json)
+        o_json_dict = history_res["redisCache"]["gameDetails"]['pyramid_json']
 
         for i in range(1, count + 1):
             for k in range(1, 6):
@@ -273,9 +271,9 @@ class Requests:
                 data_bet['userHash'] = user_hash
                 data_bet['userID'] = user_id
 
-
-                res = requests.post(url=self.url,data=data_bet).json()
-                PrizeID = res["PrizeID"]
+                res = requests.post(url=self.url,data=data_bet)
+                res = res.json()
+                PrizeID = res['game']["PrizeID"]
                 if PrizeID in ['301', '302', '303']:
                     star_count += self.star_count_map[PrizeID]
 
@@ -286,9 +284,6 @@ class Requests:
                         requests.post(url=self.url,data=data_star)
                         star_count = star_count - 25
                     break
-                elif PrizeID in ['1', '2', '3']:
-                    if PrizeID in ['3']:
-                        exit(1)
         return "Done"
 
     def request_sync_pyramid(self, user_list, count):

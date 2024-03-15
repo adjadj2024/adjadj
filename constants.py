@@ -83,7 +83,7 @@ class Constants:
                 "wsfilename": "Ajax-Pyramid.php",
                 "env": "production",
                 "domain": "am",
-                "promoCorePath": "/var/www/html/promo.v.5",
+                "promoCorePath": "/var/www/html/promo.v.6",
                 "handlerHash": "67a0e2aef2c259ce2abc0fd4b869f0f903007ea6b7bdde7aaa2f8cd7bf242a81"
             }
     WHEEL_PAYLOAD = {
