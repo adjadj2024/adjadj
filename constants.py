@@ -8,7 +8,7 @@ class Constants:
     AUTHORIZATION_PAGE_URL = 'https://www.adjarabet.am/hy/Promo/volcanicwinnings'
     AKCIA_PAGE_URL = 'https://www.adjarabet.am/hy/Promo/cashquest'
     DB_PATH = os.path.join(os.path.dirname(current_file_path), 'app_db.db')
-    REQUEST_URL = "https://promos.www.adjarabet.am/cashquest/WebServices/handler.php"
+    REQUEST_URL = "https://promos.www.adjarabet.am/cashihanq/WebServices/handler.php"
     PAYLOAD = {
                 "userID": "",
                 "hour": 2,
